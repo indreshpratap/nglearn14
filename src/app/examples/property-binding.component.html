@@ -1,0 +1,24 @@
+<div style="border:1px solid; margin:2rem;padding:1rem;">
+    <strong>Property Binding & Event Example</strong>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatum maiores placeat, temporibus beatae
+        delectus et molestiae eligendi, obcaecati fuga perspiciatis dicta esse quibusdam alias saepe accusantium magnam
+        itaque laborum.
+    </div>
+    <hr>
+    <div [id]="divRef" [tabIndex]="tabIndx" (mouseenter)="handleEvent($event)" (mousemove)="handleEvent($event)">
+
+        <b>{{divRef}}</b>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, quibusdam molestias! Maiores ipsa rem
+        doloribus at cum, adipisci officia consequatur voluptatibus autem molestias ea vel non esse obcaecati quaerat
+        beatae!
+        Mollitia, quidem unde! Repudiandae tenetur non doloribus quidem, rerum molestiae suscipit excepturi quod labore
+        magnam, perferendis quo soluta velit corporis. Doloribus nam, sunt tenetur libero neque blanditiis dolorem
+        nostrum at.
+
+    </div>
+
+    <button (click)="modify($event,true,'refid',10)">Change Attributes</button>
+    
+</div>
