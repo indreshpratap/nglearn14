@@ -1,0 +1,27 @@
+<div class="box">
+    <h3>Ng For/Ng If Example</h3>
+
+    <div class="box-content">
+
+        <ul>
+            <li *ngFor="let item of listItems"> {{ item }} </li>
+        </ul>
+
+
+
+
+    <input type="text" placeholder="Todo..." #todoRef (keydown.enter)="add(todoRef)">
+    <button (click)="add(todoRef)">ADD</button>
+
+    <h3 *ngIf="todos && todos.length">Todos ({{todos.length}})</h3>
+        <div title="Double click to remove it" (dblclick)="remove(item,indx)" *ngFor="let item of todos;let indx=index;let even=even;let odd = odd;let first=first;let last=last;"> {{item}}
+            <span class="chip">Index: <strong>{{ indx }}</strong></span>
+            <span [class.disabled]="!first" class="chip">First: <strong>{{ first }}</strong></span>
+            <span [class.disabled]="!last" class="chip">Last: <strong>{{ last }}</strong></span>
+            <span [class.disabled]="!even" class="chip">Even: <strong>{{ even }}</strong></span>
+            <span [class.disabled]="!odd" class="chip">Odd: <strong>{{ odd }}</strong></span>
+
+            <button (click)="remove(item,indx)">X</button>
+        </div>
+    </div>
+</div>

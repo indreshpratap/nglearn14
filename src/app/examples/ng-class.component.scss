@@ -1,0 +1,22 @@
+.msg {
+    border: 1px solid;
+    padding: 10px;
+    margin: 1rem;
+}
+
+.error {
+    border: red;
+    background: lightcoral;
+    color: white;
+}
+
+.success {
+    border: green;
+    background: lightgreen;
+    color: darkgreen;
+}
+
+.inline {
+    display: inline-block;
+}
+

@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './examples/interpolation.component';
 import { PropertyBindingComponent } from './examples/property-binding.component';
+import { NgClassComponent } from './examples/ng-class.component';
+import { NgForComponent } from './examples/ng-for.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InterpolationComponent,
-    PropertyBindingComponent
+    PropertyBindingComponent,
+    NgClassComponent,
+    NgForComponent
   ],
   imports: [
     BrowserModule

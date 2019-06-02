@@ -1,0 +1,41 @@
+<div class="box">
+    <h3>Ng Class Example</h3>
+
+    <div class="box-content">
+
+        <button (click)="setMessageType('error')">Error</button>
+        <button (click)="setMessageType('success')">Success</button>
+        <button (click)="setInline()">Toggle Inline</button>
+
+        <div class="msg" [ngClass]="msgType">
+            Example of ngClass with string
+        </div>
+
+        <div class="msg" [ngClass]="classes">
+            Example of ngClass with array of classes
+        </div>
+
+        <div class="msg" [ngClass]="conditions">
+            Example of ngClass with conditional classes
+        </div>
+        <div class="msg" [class.success]="conditions.success" [class.inline]="conditions.inline">
+            Example of class.&lt;class-name&gt; with condition
+        </div>
+    </div>
+
+    <h3>Ng Style Example</h3>
+
+    <!-- Template reference variable -->
+    <input type="text" placeholder="Property name" #styleKey>
+    <input type="text" placeholder="Property value" #styleValue>
+    <button (click)="addStyle(styleKey,styleValue)">Add Style</button>
+    <div class="msg" style="background:lightblue" [ngStyle]="styles">
+        ngStyle example
+
+        <pre>
+            {{ styles | json}}
+        </pre>
+
+
+    </div>
+</div>
