@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-ng-for',
     templateUrl: './ng-for.component.html'
 })
 export class NgForComponent {
+
+    @Input() promptDelete = false;
     listItems: Array<any>;
     todos:Array<any> =[];
 
@@ -13,7 +15,10 @@ export class NgForComponent {
     }
 
     remove(item, index) {
-        this.todos.splice(index, 1);
+        if(!this.promptDelete || 
+            (this.promptDelete && confirm('Are you sure?'))){
+            this.todos.splice(index, 1);
+        }
     }
 
     add(inputRef) {

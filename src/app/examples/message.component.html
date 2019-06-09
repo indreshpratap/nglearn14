@@ -1,0 +1,8 @@
+<div class="message" [style.color]="color">
+    {{ message }}
+<span *ngIf="conf && conf.message">
+    {{conf.message}}
+
+</span>
+    {{conf | json}}
+</div>

@@ -1,0 +1,10 @@
+<div class="box">
+    <h3>@Input Example</h3>
+
+    <div class="box-content">
+        <button (click)="setMessage('This is Success','green')">Success</button>
+        <button (click)="setMessage('This is Error','red')">Error</button>
+        <app-message [color]="color" [message]="customMessage"></app-message>
+        <app-message message="Passing reference" [config]="msgConfig"></app-message>
+    </div>
+</div>
