@@ -21,4 +21,11 @@ export class InputTestComponent {
             color:color
         }
     }
+
+    clearMessage(ev){
+        console.log('getting called',ev);
+        this.customMessage = null;
+        this.color = null;
+        this.msgConfig = null;
+    }
 }

@@ -1,8 +1,10 @@
-<div class="message" [style.color]="color">
+<div class="message" *ngIf="message || conf" [style.color]="color">
     {{ message }}
-<span *ngIf="conf && conf.message">
-    {{conf.message}}
+    <span *ngIf="conf && conf.message">
+        {{conf.message}}
 
-</span>
+    </span>
     {{conf | json}}
+
+    <button (click)="handleClose()">close</button>
 </div>

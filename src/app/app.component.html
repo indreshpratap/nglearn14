@@ -1,4 +1,9 @@
 <h1>Angular Application:: {{ title }}</h1>
+<ul>
+    <li><a routerLink="">Root</a></li>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+</ul>
 
 <!-- <app-interpolation></app-interpolation> -->
 
@@ -6,7 +11,14 @@
 <!-- <app-property-binding></app-property-binding> -->
 <!-- <app-ng-class></app-ng-class> -->
 <!-- <app-ng-for></app-ng-for> -->
-<app-input-test></app-input-test>
+<!-- <app-input-test></app-input-test> -->
 
-<app-message message="this is from app component"></app-message>
+<!-- <app-message message="this is from app component"></!-->
+
+<div>
+    <router-outlet></router-outlet>
+
+
+    <h3>this is static</h3>
+</div>
  

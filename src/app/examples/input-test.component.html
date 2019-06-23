@@ -4,7 +4,8 @@
     <div class="box-content">
         <button (click)="setMessage('This is Success','green')">Success</button>
         <button (click)="setMessage('This is Error','red')">Error</button>
-        <app-message [color]="color" [message]="customMessage"></app-message>
-        <app-message message="Passing reference" [config]="msgConfig"></app-message>
+        <app-message [color]="color" [message]="customMessage" (onClear)="clearMessage($event)"></app-message>
+        <br>
+        <app-message message="Passing reference" [config]="msgConfig" (onClear)="clearMessage($event)"></app-message>
     </div>
 </div>
