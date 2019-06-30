@@ -1,0 +1,42 @@
+<div class="modal" [class.is-active]="show">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Login</p>
+      <button class="delete" (click)="loginAction(false)" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <form #loginForm="ngForm">
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control">
+          <!-- Two-way binding -->
+          <!-- <input class="input" name="username" required [(ngModel)]="username" type="text" placeholder="Username"> -->
+         <!-- Property Binding -->
+          <input class="input" name="username" required [ngModel]="username" type="text" placeholder="Username">
+          {{ username }}
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" name="pwd" required ngModel type="password" placeholder="Password">
+         Password:  {{password }}
+        </div>
+      </div>
+      </form>
+      
+      <pre>
+        {{loginForm.value | json }}
+      </pre>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success" [disabled]="loginForm.invalid" (click)="doLogin(loginForm)">Login</button>
+      <button class="button" (click)="loginAction(false)">Cancel</button>
+      <button class="button" type="button" (click)="loginForm.reset()">Reset</button>
+
+     Invalid: {{loginForm.invalid}}
+   
+    </footer>
+  </div>
+</div>
