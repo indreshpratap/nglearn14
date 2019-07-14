@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { smallAndSpace } from 'src/utils/custom.validators';
+import { QuestionService } from '../../question.service';
 
 interface Address {
   line1: string;
@@ -10,16 +12,20 @@ interface Address {
 @Component({
   selector: 'app-new-question',
   templateUrl: './new-question.component.html',
-  styleUrls: ['./new-question.component.scss']
+  styleUrls: ['./new-question.component.scss'],
+  // providers:[QuestionService]
 })
 export class NewQuestionComponent implements OnInit {
 
   form: FormGroup;
   addrKeys: Array<string>;
-
-  constructor() { }
+  submitted = false;
+  questions;
+  // Dependency injection
+  constructor(private questionSvc: QuestionService) { }
 
   ngOnInit() {
+    this.questions = this.questionSvc.getQuestions();
     let addr: Address;
     addr = {
       line1: "fdlfskjdfl fldsk f",
@@ -31,13 +37,14 @@ export class NewQuestionComponent implements OnInit {
 
     this.form = new FormGroup({
 
-      question: new FormControl(null, [Validators.required, Validators.maxLength(500)]),
-      tags: new FormControl(null, [Validators.required]),
-      title: new FormControl(null, [Validators.required]),
+      title: new FormControl(null, [Validators.required,Validators.minLength(5)]),
+      question: new FormControl(null, [Validators.required,Validators.minLength(10), Validators.maxLength(500)]),
+      tags: new FormControl(null, [Validators.required,smallAndSpace]),
+      confirmTerms:new FormControl(false,[Validators.requiredTrue]),
 
       address: address
       // only for example
-
+// Validators.pattern('[a-z ]+')
 
     });
 
@@ -57,5 +64,14 @@ export class NewQuestionComponent implements OnInit {
       line2: "Sector 115"
       // }
     });
+  }
+
+
+  save(){
+    this.submitted = true;
+    if(this.form.valid){
+      console.log('Save',this.form.value);
+      this.questionSvc.saveQuestions(this.form.value);
+    }
   }
 }

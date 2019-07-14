@@ -8,7 +8,7 @@ import { appRoutes } from './app.routing';
 import { components } from './components';
 // import { UserModule } from 'src/app-modules/user/user.module';
 import { UIKitModule } from 'src/app-modules/ui-kit/ui-kit.module';
-import { UserModule } from 'src/app-modules/user/user.module';
+
 
 
 

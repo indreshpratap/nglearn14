@@ -4,11 +4,13 @@
   </div>
 
   <div class="card-content">
-    <form [formGroup]="form">
+    <form [formGroup]="form" class="highlight-error-fields">
       <div class="field">
         <label class="label">Title</label>
         <div class="control">
           <input class="input" type="text" formControlName="title" placeholder="Title">
+          <!-- {{form.get('title').errors|json}} -->
+          <app-field-error [submitted]="submitted" [control]="form.get('title')"></app-field-error>
         </div>
       </div>
       <div class="field">
@@ -16,15 +18,25 @@
         <div class="control">
           <textarea class="textarea" formControlName="question" placeholder="Question"></textarea>
         </div>
+        <app-field-error [submitted]="submitted" [control]="form.get('question')"></app-field-error>
       </div>
       <div class="field">
         <label class="label">Tags</label>
         <div class="control">
           <input class="input" formControlName="tags" placeholder="Tags">
         </div>
+        {{form.get('tags').errors|json}}
+        <app-field-error [submitted]="submitted" [control]="form.get('tags')"></app-field-error>
       </div>
-
-      <button class="button is-small is-primary" [disabled]="form.invalid">Save</button>
+      <div class="field">
+        <label class="label"></label>
+        <div class="control">
+          <input type="checkbox" class="checkbox" formControlName="confirmTerms"> Please confirm terms & conditions.
+        </div>
+       
+        <!-- <app-field-error [submitted]="submitted" [control]="form.get('tags')"></app-field-error> -->
+      </div>
+      <button class="button is-small is-primary" (click)="save()">Save</button>
     </form>
 
 <!-- for example to generate dynamic controls -->
@@ -42,5 +54,7 @@
     <button class="button is-small is-link" (click)="setAddress()">Set Address</button>
 
     {{form.get('address').value|json}} -->
+
+    {{questions|json}}
   </div>
 </div>

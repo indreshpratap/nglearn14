@@ -12,8 +12,21 @@
     }
 }
 
-button,input {
+button,
+input {
     border: 1px solid;
     padding: 5px;
     margin: .5rem;
+}
+
+.highlight-error-fields {
+    input,
+    textarea {
+        &.ng-invalid.ng-touched {
+            border: 1px solid tomato;
+        }
+        &.ng-valid.ng-touched {
+            border: 1px solid green;
+        }
+    }
 }

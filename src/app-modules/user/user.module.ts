@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { userComponents } from './pages';
 import { RouterModule } from '@angular/router';
 import { userRouting } from './user.routing';
-import { FormsModule } from '@angular/forms';
 import { UIKitModule } from '../ui-kit/ui-kit.module';
+import { QuestionService } from './question.service';
 
 @NgModule({
   declarations: [
@@ -13,6 +12,7 @@ import { UIKitModule } from '../ui-kit/ui-kit.module';
   imports: [
     UIKitModule,
     RouterModule.forChild(userRouting)
-  ]
+  ],
+  providers:[]
 })
 export class UserModule { }
