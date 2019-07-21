@@ -8,6 +8,7 @@ import { appRoutes } from './app.routing';
 import { components } from './components';
 // import { UserModule } from 'src/app-modules/user/user.module';
 import { UIKitModule } from 'src/app-modules/ui-kit/ui-kit.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,6 +23,7 @@ import { UIKitModule } from 'src/app-modules/ui-kit/ui-kit.module';
   imports: [
     BrowserModule,
     UIKitModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     //  UserModule // eager loading of modules
   ],

@@ -6,7 +6,7 @@
   <div class="card-content">
 <!-- {{questions|json}} -->
 <ul *ngIf="questions">
-  <li (click)="view(item)" *ngFor="let item of questions"> {{item.question}}</li>
+  <li (click)="view(item)" *ngFor="let item of questions"> {{item.title}}</li>
 </ul>
 </div>
 </div>

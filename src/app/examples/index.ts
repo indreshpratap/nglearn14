@@ -4,6 +4,7 @@ import { NgClassComponent } from './ng-class.component';
 import { NgForComponent } from './ng-for.component';
 import { MessageComponent } from './message.component';
 import { InputTestComponent } from './input-test.component';
+import { ObservablesComponent } from './observables.component';
 
 export const exampleComponents = [
     PropertyBindingComponent,
@@ -11,7 +12,8 @@ export const exampleComponents = [
     NgClassComponent,
     NgForComponent,
     MessageComponent,
-    InputTestComponent
+    InputTestComponent,
+    ObservablesComponent
 ];
 
 export * from './interpolation.component';
@@ -20,3 +22,4 @@ export * from './input-test.component';
 export * from './message.component';
 export * from './ng-class.component';
 export * from './property-binding.component';
+export * from './observables.component';
