@@ -29,11 +29,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 #Pending:
 
-* Api Integration + Observables + Interceptors
+* Api Integration + Observables @done
+* Interceptors
 * Third party components
 * FormArray
 * Pipe & Directives
-* Life cycle hooks
+* Life cycle hooks (@Done ngOnChanges)
 * Auth Guard
 * Session Management
 

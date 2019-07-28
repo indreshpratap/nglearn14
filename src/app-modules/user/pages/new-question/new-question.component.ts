@@ -37,14 +37,14 @@ export class NewQuestionComponent implements OnInit {
 
     this.form = new FormGroup({
 
-      title: new FormControl(null, [Validators.required,Validators.minLength(5)]),
-      question: new FormControl(null, [Validators.required,Validators.minLength(10), Validators.maxLength(500)]),
-      tags: new FormControl(null, [Validators.required,smallAndSpace]),
-      confirmTerms:new FormControl(false,[Validators.requiredTrue]),
+      title: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      question: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(500)]),
+      tags: new FormControl([], [Validators.required]),
+      confirmTerms: new FormControl(false, [Validators.requiredTrue]),
 
-      address: address
+      // address: address
       // only for example
-// Validators.pattern('[a-z ]+')
+      // Validators.pattern('[a-z ]+')
 
     });
 
@@ -67,11 +67,17 @@ export class NewQuestionComponent implements OnInit {
   }
 
 
-  save(){
+  save() {
     this.submitted = true;
-    if(this.form.valid){
-      console.log('Save',this.form.value);
-      this.questionSvc.saveQuestions(this.form.value);
+    if (this.form.valid) {
+      console.log('Save', this.form.value);
+      this.questionSvc.saveQuestions(this.form.value)
+        .subscribe(res => {
+          if (res.status) {
+            this.form.reset();
+            alert('Question Saved');
+          }
+        });
     }
   }
 }

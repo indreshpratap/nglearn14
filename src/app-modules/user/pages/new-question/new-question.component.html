@@ -23,15 +23,18 @@
       <div class="field">
         <label class="label">Tags</label>
         <div class="control">
-          <input class="input" formControlName="tags" placeholder="Tags">
+            <p-chips formControlName="tags"></p-chips>
+          <!-- <input class="input" formControlName="tags" placeholder="Tags"> -->
         </div>
-        {{form.get('tags').errors|json}}
+        <!-- {{form.get('tags').errors|json}} -->
         <app-field-error [submitted]="submitted" [control]="form.get('tags')"></app-field-error>
       </div>
       <div class="field">
         <label class="label"></label>
         <div class="control">
-          <input type="checkbox" class="checkbox" formControlName="confirmTerms"> Please confirm terms & conditions.
+            <p-checkbox [formControl]="form.get('confirmTerms')" binary="true" label="Please confirm terms & conditions." ></p-checkbox>
+
+          <!-- <input type="checkbox" class="checkbox" formControlName="confirmTerms"> -->
         </div>
        
         <!-- <app-field-error [submitted]="submitted" [control]="form.get('tags')"></app-field-error> -->

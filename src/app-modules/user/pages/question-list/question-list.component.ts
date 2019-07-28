@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../../question.service';
-import {HttpClient} from '@angular/common/http';
+import {ApiClient} from '../../../common/api.client';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-question-list',
@@ -11,7 +11,7 @@ export class QuestionListComponent implements OnInit {
 
   questions;
   constructor(private questionSvc: QuestionService,
-    private httpClient:HttpClient
+    private api:ApiClient
     ) { }
 
   ngOnInit() {
@@ -24,10 +24,12 @@ export class QuestionListComponent implements OnInit {
   }
 
   fetchQuestions(){
-    this.httpClient.get(environment.apiPath+'questions')
-    .subscribe((res)=>{
-      this.questions = res;
-    })
+    this.api.get('questions')
+    .subscribe(res=>{
+      this.questions = res.data;
+    },(err)=>{
+      
+    });
   }
 
 }
