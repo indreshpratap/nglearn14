@@ -32,4 +32,17 @@ export class QuestionListComponent implements OnInit {
     });
   }
 
+  strTrim(value: string, max = 20,trimChars='...'): any {
+   console.log('my string trim function', value);
+    if (!value) {
+        return value;
+    }
+
+    if (value && value.length > max) {
+        return value.substr(0, max) + trimChars;
+    } else {
+        return value;
+    }
+}
+
 }

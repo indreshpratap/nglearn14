@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+  <table>
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td><input formControlName="name"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input formControlName="email"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)="addQualification()">Add Qualification</button>
+          <button (click)="save()" [disabled]="form.invalid" class="button is-primary">Save</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table formArrayName="qualifications">
+    <tr>
+      <th>Title</th>
+      <th>Mark Obtained</th>
+    </tr>
+    <tr *ngFor="let item of qualifications.controls;let index=index" [formGroupName]="index">
+      <td><input type="text" formControlName="title"></td>
+      <td><input type="text" formControlName="markObtained"></td>
+      <td><button (click)="remove(index)">remove</button></td>
+    </tr>
+  </table>
+</form>
+
+<pre>
+  {{form.value | json}}
+</pre>

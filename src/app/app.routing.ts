@@ -1,4 +1,4 @@
-import { HomeComponent, AboutComponent, NotFoundComponent } from './pages';
+import { HomeComponent, AboutComponent, NotFoundComponent, SignupComponent } from './pages';
 import { Routes } from '@angular/router';
 import { AccessGuard } from './access.guard';
 import { ObservablesComponent } from './examples';
@@ -15,6 +15,7 @@ export const appRoutes: Routes = [
     },
     { path: "home", component: HomeComponent },
     { path: "about", component: AboutComponent },
+    { path: "signup", component: SignupComponent },
 
     {path:"example/observable", component:ObservablesComponent},
 

@@ -48,3 +48,13 @@ router.get('/question/:id', (req, res) => {
 });
 
 
+router.post('/register',(req,res)=>{
+    let data = req.body;
+    data.active = true;
+    data.role = 'user';
+    db.users.insert(data,(err,user)=>{
+        SEND(res,err,user);
+    })
+})
+
+
